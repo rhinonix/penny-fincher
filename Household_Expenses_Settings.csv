@@ -1,0 +1,48 @@
+Categories,Subcategories,Combinations,Accounts,Years
+Bank Fees,,Bank Fees,PrimaBanka,2025
+Subscriptions,,Subscriptions,Citizens,2024
+Automotive,Fuel,Automotive → Fuel,,2023
+Automotive,Maintenance & Repairs,Automotive → Maintenance & Repairs,,2022
+Automotive,Insurance,Automotive → Insurance,,2021
+Automotive,Registration & Taxes,Automotive → Registration & Taxes,,2020
+Automotive,Parking & Tolls,Automotive → Parking & Tolls,,2019
+Automotive,Accessories & Upgrades,Automotive → Accessories & Upgrades,,2018
+Sports & Leisure,Movies,Sports & Leisure → Movies,,2017
+Sports & Leisure,Concerts,Sports & Leisure → Concerts,,2016
+Sports & Leisure,Theatre Performances,Sports & Leisure → Theatre Performances,,2015
+Sports & Leisure,Events,Sports & Leisure → Events,,2014
+Sports & Leisure,Sporting Events,Sports & Leisure → Sporting Events,,2013
+Sports & Leisure,Museums & Galleries,Sports & Leisure → Museums & Galleries,,2012
+Dining,Restaurants,Dining → Restaurants,,2011
+Dining,Bars & Drinks,Dining → Bars & Drinks,,2010
+Dining,Coffee Shops,Dining → Coffee Shops,,
+Shopping,Groceries,Shopping → Groceries,,
+Shopping,Health & Beauty,Shopping → Health & Beauty,,
+Shopping,Electronics,Shopping → Electronics,,
+Shopping,Pets,Shopping → Pets,,
+Shopping,Office Supplies,Shopping → Office Supplies,,
+Shopping,"Clothing, Shoes & Accessories","Shopping → Clothing, Shoes & Accessories",,
+Shopping,Books & Hobbies,Shopping → Books & Hobbies,,
+Shopping,Sporting Goods,Shopping → Sporting Goods,,
+Shopping,BB,Shopping → BB,,
+Shopping,Alex,Shopping → Alex,,
+Shopping,Gifts,Shopping → Gifts,,
+Healthcare,Medicine & Prescriptions,Healthcare → Medicine & Prescriptions,,
+Healthcare,Vitamins & Supplements,Healthcare → Vitamins & Supplements,,
+Healthcare,Doctor Visits,Healthcare → Doctor Visits,,
+Healthcare,Dental Care,Healthcare → Dental Care,,
+Healthcare,Surgeries & Procedures,Healthcare → Surgeries & Procedures,,
+Healthcare,Health Insurance Premiums,Healthcare → Health Insurance Premiums,,
+Healthcare,Wellness,Healthcare → Wellness,,
+Home & Garden,Home Repairs & Maintenance,Home & Garden → Home Repairs & Maintenance,,
+Home & Garden,Garden Supplies & Plants,Home & Garden → Garden Supplies & Plants,,
+Home & Garden,Furniture,Home & Garden → Furniture,,
+Home & Garden,Home Décor,Home & Garden → Home Décor,,
+Home & Garden,Appliances & Electronics,Home & Garden → Appliances & Electronics,,
+Grooming,,Grooming,,
+Transportation,Buses,Transportation → Buses,,
+Transportation,Trains,Transportation → Trains,,
+Vacation,Accommodations,Vacation → Accommodations,,
+Vacation,Flights,Vacation → Flights,,
+Vacation,Other,Vacation → Other,,
+Other,,Other,,
