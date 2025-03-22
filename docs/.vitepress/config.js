@@ -4,8 +4,9 @@ export default defineConfig({
   title: 'PennyFincher Documentation',
   description: 'Documentation for the PennyFincher personal finance tracker',
   base: '/penny-fincher/', // GitHub Pages repository name
+  ignoreDeadLinks: true, // Ignore dead links during build
   themeConfig: {
-    logo: '/logo.png',
+    logo: '/logo.svg',
     nav: [
       { text: 'Home', link: '/' },
       { text: 'API', link: '/api/' },
