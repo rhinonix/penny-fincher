@@ -1,40 +1,24 @@
-import { useEffect, useState } from 'react';
-import { supabase } from './lib/supabase';
+import { Routes, Route, Navigate } from 'react-router-dom'
+import Layout from './components/Layout'
+import Dashboard from './pages/Dashboard'
+import Transactions from './pages/Transactions'
+import Budget from './pages/Budget'
+import Reports from './pages/Reports'
+import Settings from './pages/Settings'
 
 function App() {
-  const [status, setStatus] = useState('Checking connection...');
-
-  useEffect(() => {
-    async function checkConnection() {
-      try {
-        const { data, error } = await supabase
-          .from('transactions')
-          .select('count')
-          .limit(1);
-
-        if (error) {
-          throw error;
-        }
-
-        setStatus('Connected to Supabase successfully!');
-        console.log('Test query result:', data);
-      } catch (error) {
-        setStatus(`Connection error: ${error.message}`);
-        console.error('Supabase error:', error);
-      }
-    }
-
-    checkConnection();
-  }, []);
-
   return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">PennyFincher</h1>
-      <div className="p-4 bg-white rounded shadow">
-        {status}
-      </div>
-    </div>
-  );
+    <Routes>
+      <Route element={<Layout />}>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/transactions" element={<Transactions />} />
+        <Route path="/budget" element={<Budget />} />
+        <Route path="/reports" element={<Reports />} />
+        <Route path="/settings" element={<Settings />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Route>
+    </Routes>
+  )
 }
 
-export default App;
+export default App
