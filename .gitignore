@@ -25,6 +25,7 @@ dist-ssr
 
 # Local env files
 .env
+.env.example
 
 # Local Netlify folder
 .netlify
