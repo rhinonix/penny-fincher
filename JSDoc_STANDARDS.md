@@ -1,17 +1,21 @@
 # JSDoc Standards for Penny-Fincher
 
 ## Overview
+
 This document outlines the JSDoc standards to be consistently applied across all files in the Penny-Fincher application.
 
 ## Types of Documentation Required
 
 ### 1. Interfaces and Types
+
 All interfaces and types should have:
+
 - A description of what the interface/type represents
 - @interface or @type tags
 - Documentation for each property
 
 Example:
+
 ```typescript
 /**
  * Represents a financial transaction record
@@ -27,18 +31,21 @@ interface Transaction {
 ```
 
 ### 2. Components
+
 All React components should have:
+
 - Description of the component's purpose and functionality
 - @param documentation for props (if applicable)
 - @returns documentation for what the component renders
 
 Example:
+
 ```typescript
 /**
  * Modal component for adding new transactions
- * 
+ *
  * Provides a form with input fields for all transaction data.
- * 
+ *
  * @param {TransactionFormModalProps} props - Component props
  * @returns {JSX.Element|null} Rendered modal or null when closed
  */
@@ -48,7 +55,9 @@ function TransactionFormModal(props: TransactionFormModalProps) {
 ```
 
 ### 3. Functions and Methods
+
 All functions/methods should have:
+
 - Description of what the function does
 - @param documentation for each parameter
 - @returns documentation for the return value
@@ -56,6 +65,7 @@ All functions/methods should have:
 - @throws tag for functions that throw errors
 
 Example:
+
 ```typescript
 /**
  * Fetches all transactions from the Google Sheets document
@@ -69,10 +79,13 @@ async function getTransactions(): Promise<Transaction[]> {
 ```
 
 ### 4. Constants and Configuration
+
 All significant constants should have:
+
 - Description of what the constant represents and how it's used
 
 Example:
+
 ```typescript
 /**
  * Navigation items for the sidebar
@@ -84,6 +97,7 @@ const navigation = [
 ```
 
 ## Files to Update
+
 The following files still need JSDoc updates:
 
 1. src/components/SkeletonLoader.tsx
@@ -95,7 +109,7 @@ The following files still need JSDoc updates:
 7. src/pages/Settings.tsx
 
 ## Process
+
 1. Start with core components and most frequently used utilities
 2. Move to page components
 3. Document any remaining utilities or helpers
-
