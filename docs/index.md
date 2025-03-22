@@ -14,7 +14,7 @@ hero:
       link: /guide/getting-started
     - theme: alt
       text: View on GitHub
-      link: https://github.com/yourusername/penny-fincher
+      link: https://github.com/rhinonix/penny-fincher
 
 features:
   - icon: 📊
