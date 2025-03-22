@@ -37,6 +37,8 @@ features:
     details: Organize transactions with your own hierarchy of categories and subcategories
 ---
 
+<div class="spacer"></div>
+
 # PennyFincher Documentation
 
 Welcome to the PennyFincher documentation. PennyFincher is a personal finance tracking application that helps you manage your expenses and budget.
@@ -71,5 +73,8 @@ Welcome to the PennyFincher documentation. PennyFincher is a personal finance tr
   padding: 1rem;
   border-radius: 8px;
   background-color: rgba(76, 175, 80, 0.1);
+}
+.spacer {
+  height: 3rem;
 }
 </style>
