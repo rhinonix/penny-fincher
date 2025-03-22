@@ -8,6 +8,10 @@ import 'react-loading-skeleton/dist/skeleton.css'
 // Register ChartJS components
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
+/**
+ * Transaction interface for budget calculations
+ * @interface Transaction
+ */
 interface Transaction {
   id?: string
   date: string
@@ -20,6 +24,10 @@ interface Transaction {
   notes?: string
 }
 
+/**
+ * Budget data structure for a single category
+ * @interface BudgetItem
+ */
 interface BudgetItem {
   category: string
   budgeted: number
@@ -28,8 +36,12 @@ interface BudgetItem {
   percentUsed: number
 }
 
-// This is a placeholder for budget data
-// In a real app, this would be fetched from an API or database
+/**
+ * Sample budget data by category
+ * @constant
+ * @type {Record<string, number>}
+ * @description Placeholder budget data. In a real app, this would be fetched from an API or database.
+ */
 const SAMPLE_BUDGETS = {
   'Food & Dining': 500,
   'Shopping': 300,
@@ -41,6 +53,20 @@ const SAMPLE_BUDGETS = {
   'Utilities': 250,
 }
 
+/**
+ * Budget management page component
+ * 
+ * Features:
+ * - Displays monthly budget vs. actual spending
+ * - Shows summary statistics (total budgeted, spent, remaining)
+ * - Visualizes budget vs. actual with bar chart
+ * - Lists all budget categories with progress bars
+ * 
+ * Note: Currently uses sample budget data. In a production app,
+ * this would be fetched from a database or API.
+ * 
+ * @returns {JSX.Element} The budget page
+ */
 function Budget() {
   const [transactions, setTransactions] = useState<Transaction[]>([])
   const [loading, setLoading] = useState(true)
@@ -49,6 +75,13 @@ function Budget() {
   const [totalSpent, setTotalSpent] = useState(0)
   
   useEffect(() => {
+    /**
+     * Loads transaction data and calculates budget statistics
+     * - Filters transactions to current month
+     * - Calculates spending by category
+     * - Combines with budget data
+     * @async
+     */
     async function loadData() {
       try {
         // Get current month's transactions
@@ -142,6 +175,11 @@ function Budget() {
   }, [])
   
   // Format currency
+  /**
+   * Formats a number as a currency string in EUR
+   * @param {number} amount - The amount to format
+   * @returns {string} Formatted currency string
+   */
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat('en-US', {
       style: 'currency',
@@ -150,7 +188,10 @@ function Budget() {
     }).format(amount)
   }
   
-  // Chart data for budget vs. actual
+  /**
+   * Chart configuration data for budget vs. actual comparison
+   * @type {Object}
+   */
   const chartData = {
     labels: budgetItems.map(item => item.category),
     datasets: [
@@ -167,6 +208,11 @@ function Budget() {
     ],
   }
   
+  /**
+   * Chart display options for the budget chart
+   * Includes formatting for currency values in tooltips and axes
+   * @type {Object}
+   */
   const chartOptions = {
     responsive: true,
     maintainAspectRatio: false,

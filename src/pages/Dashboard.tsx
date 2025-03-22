@@ -9,6 +9,10 @@ import 'react-loading-skeleton/dist/skeleton.css'
 // Register ChartJS components
 ChartJS.register(ArcElement, Tooltip, Legend, CategoryScale, LinearScale, BarElement, Title)
 
+/**
+ * Transaction interface for dashboard display
+ * @interface Transaction
+ */
 interface Transaction {
   id?: string
   date: string
@@ -21,6 +25,17 @@ interface Transaction {
   notes?: string
 }
 
+/**
+ * Dashboard page component
+ * 
+ * Displays financial overview including:
+ * - Summary statistics (totals and averages)
+ * - Category breakdown pie chart
+ * - Monthly spending bar chart
+ * - Recent transactions table
+ * 
+ * @returns {JSX.Element} The dashboard view
+ */
 function Dashboard() {
   const [transactions, setTransactions] = useState<Transaction[]>([])
   const [loading, setLoading] = useState(true)
@@ -31,6 +46,10 @@ function Dashboard() {
   })
   
   useEffect(() => {
+    /**
+     * Asynchronously fetches transaction data and calculates dashboard statistics
+     * @async
+     */
     async function loadData() {
       try {
         const data = await googleSheets.getTransactions()
@@ -167,6 +186,11 @@ function Dashboard() {
   const recentTransactions = transactions.slice(0, 5)
   
   // Format currency
+  /**
+   * Formats a number as a currency string
+   * @param {number|undefined} amount - Amount to format
+   * @returns {string} Formatted currency string or empty string if undefined
+   */
   const formatCurrency = (amount: number | undefined) => {
     if (amount === undefined) return ''
     return new Intl.NumberFormat('en-US', {

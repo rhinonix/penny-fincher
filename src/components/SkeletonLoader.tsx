@@ -1,10 +1,21 @@
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
+/**
+ * Props for skeleton loader components
+ * @interface CardSkeletonProps
+ */
 interface CardSkeletonProps {
   count?: number
 }
 
+/**
+ * Renders skeleton loading states for dashboard cards
+ * 
+ * @param {CardSkeletonProps} props - Component props
+ * @param {number} [props.count=3] - Number of card skeletons to render
+ * @returns {JSX.Element} The card skeleton component
+ */
 export const CardSkeleton = ({ count = 3 }: CardSkeletonProps) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
@@ -18,6 +29,13 @@ export const CardSkeleton = ({ count = 3 }: CardSkeletonProps) => {
   )
 }
 
+/**
+ * Renders skeleton loading states for chart containers
+ * 
+ * @param {CardSkeletonProps} props - Component props
+ * @param {number} [props.count=2] - Number of chart skeletons to render
+ * @returns {JSX.Element} The chart skeleton component
+ */
 export const ChartSkeleton = ({ count = 2 }: CardSkeletonProps) => {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
@@ -33,6 +51,11 @@ export const ChartSkeleton = ({ count = 2 }: CardSkeletonProps) => {
   )
 }
 
+/**
+ * Renders skeleton loading state for data tables
+ * 
+ * @returns {JSX.Element} The table skeleton component
+ */
 export const TableSkeleton = () => {
   return (
     <div className="bg-white rounded-lg shadow overflow-hidden">
@@ -51,6 +74,11 @@ export const TableSkeleton = () => {
   )
 }
 
+/**
+ * Renders skeleton loading state for filter controls
+ * 
+ * @returns {JSX.Element} The filters skeleton component
+ */
 export const FiltersSkeleton = () => {
   return (
     <div className="bg-white rounded-lg shadow p-6 mb-6">

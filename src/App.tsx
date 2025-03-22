@@ -6,6 +6,15 @@ import Budget from './pages/Budget'
 import Reports from './pages/Reports'
 import Settings from './pages/Settings'
 
+/**
+ * Main application component that sets up routing
+ * 
+ * Configures all application routes within the main Layout component.
+ * Includes routes for Dashboard, Transactions, Budget, Reports, and Settings.
+ * Redirects invalid routes to the Dashboard.
+ * 
+ * @returns {JSX.Element} The rendered application with routing
+ */
 function App() {
   return (
     <Routes>

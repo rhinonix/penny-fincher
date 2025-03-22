@@ -3,6 +3,10 @@ import { Dialog, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon, HomeIcon, BanknotesIcon, ChartPieIcon, ClipboardDocumentListIcon, Cog6ToothIcon } from '@heroicons/react/24/outline'
 import { NavLink, Outlet } from 'react-router-dom'
 
+/**
+ * Navigation items for the sidebar
+ * @type {Array<{name: string, href: string, icon: React.ComponentType}>}
+ */
 const navigation = [
   { name: 'Dashboard', href: '/', icon: HomeIcon },
   { name: 'Transactions', href: '/transactions', icon: BanknotesIcon },
@@ -11,6 +15,17 @@ const navigation = [
   { name: 'Settings', href: '/settings', icon: Cog6ToothIcon },
 ]
 
+/**
+ * Main layout component with responsive sidebar navigation
+ * 
+ * Provides the application structure with:
+ * - Responsive sidebar that collapses on mobile
+ * - Navigation menu with icons
+ * - User profile section
+ * - Content area for page components via Outlet
+ * 
+ * @returns {JSX.Element} The layout with sidebar and content area
+ */
 export default function Layout() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
 

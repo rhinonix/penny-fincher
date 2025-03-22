@@ -6,6 +6,10 @@ import TransactionFormModal from '../components/TransactionFormModal'
 import Notification from '../components/Notification'
 import 'react-loading-skeleton/dist/skeleton.css'
 
+/**
+ * Transaction data structure for displaying in the transactions table
+ * @interface Transaction
+ */
 interface Transaction {
   id?: string
   date: string
@@ -18,6 +22,17 @@ interface Transaction {
   notes?: string
 }
 
+/**
+ * Transactions page component for displaying and filtering transaction history
+ * 
+ * Features:
+ * - Displays all transactions in a table format
+ * - Provides filtering by search term, category, and account
+ * - Allows adding new transactions through a modal form
+ * - Shows success/error notifications
+ * 
+ * @returns {JSX.Element} The transactions page
+ */
 function Transactions() {
   const [transactions, setTransactions] = useState<Transaction[]>([])
   const [filteredTransactions, setFilteredTransactions] = useState<Transaction[]>([])
@@ -34,6 +49,10 @@ function Transactions() {
     isVisible: false
   })
 
+  /**
+   * Loads transaction data and extracts unique categories and accounts for filters
+   * @async
+   */
   const loadData = async () => {
     try {
       setLoading(true)
@@ -59,6 +78,11 @@ function Transactions() {
     }
   }
   
+  /**
+   * Handles the event when a new transaction is added
+   * Reloads data and shows a success notification
+   * @async
+   */
   const handleTransactionAdded = async () => {
     try {
       await loadData()
@@ -112,6 +136,11 @@ function Transactions() {
   }, [search, categoryFilter, accountFilter, transactions])
 
   // Format date for display
+  /**
+   * Formats a date string into a more readable format
+   * @param {string} dateString - The date string to format
+   * @returns {string} Formatted date string
+   */
   const formatDate = (dateString: string) => {
     try {
       const date = new Date(dateString)
@@ -122,6 +151,12 @@ function Transactions() {
   }
 
   // Format currency
+  /**
+   * Formats a number as a currency string
+   * @param {number|undefined} amount - The amount to format
+   * @param {string} currency - The currency code (EUR or USD)
+   * @returns {string} Formatted currency string
+   */
   const formatCurrency = (amount: number | undefined, currency: string) => {
     if (amount === undefined) return ''
     

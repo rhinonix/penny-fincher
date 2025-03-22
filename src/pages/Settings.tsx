@@ -3,6 +3,19 @@ import Skeleton from 'react-loading-skeleton'
 import CategoryManager from '../components/CategoryManager'
 import 'react-loading-skeleton/dist/skeleton.css'
 
+/**
+ * Settings page component
+ * 
+ * Features:
+ * - Multiple settings tabs (general, account, data, about)
+ * - User preferences for currency, date format, and theme
+ * - Google Sheets connection management
+ * - Category management via CategoryManager component
+ * - Data import/export options
+ * - Application information
+ * 
+ * @returns {JSX.Element} The settings page
+ */
 function Settings() {
   const [activeTab, setActiveTab] = useState('general')
   const [currency, setCurrency] = useState('EUR')
@@ -10,6 +23,12 @@ function Settings() {
   const [theme, setTheme] = useState('light')
   const [loading, setLoading] = useState(false)
   
+  /**
+   * Handles the form submission for general settings
+   * Currently simulates an API call with a setTimeout
+   * 
+   * @param {React.FormEvent} e - The form submit event
+   */
   const handleSubmit = (e) => {
     e.preventDefault()
     setLoading(true)

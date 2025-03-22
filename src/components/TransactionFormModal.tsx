@@ -2,6 +2,10 @@ import { useState, useEffect, FormEvent } from 'react'
 import { googleSheets } from '../lib/googleSheets'
 import { format } from 'date-fns'
 
+/**
+ * Transaction interface for the form data
+ * @interface Transaction
+ */
 interface Transaction {
   id?: string
   date: string
@@ -14,12 +18,20 @@ interface Transaction {
   notes?: string
 }
 
+/**
+ * Structure for category and subcategory data
+ * @interface CategoryData
+ */
 interface CategoryData {
   categories: string[]
   subcategories: Record<string, string[]>
   allSubcategories: string[]
 }
 
+/**
+ * Props for the TransactionFormModal component
+ * @interface TransactionFormModalProps
+ */
 interface TransactionFormModalProps {
   isOpen: boolean
   onClose: () => void
@@ -27,6 +39,20 @@ interface TransactionFormModalProps {
   accounts: string[]
 }
 
+/**
+ * Modal component for adding new transactions
+ * 
+ * Provides a form with input fields for all transaction data including:
+ * - Date picker
+ * - Description field
+ * - Category and subcategory selectors
+ * - Amount fields for EUR and USD
+ * - Account selector
+ * - Notes textarea
+ * 
+ * @param {TransactionFormModalProps} props - Component props
+ * @returns {JSX.Element|null} Rendered modal or null when closed
+ */
 function TransactionFormModal({ 
   isOpen, 
   onClose, 
@@ -86,6 +112,13 @@ function TransactionFormModal({
     }
   }, [isOpen, accounts])
 
+  /**
+   * Handles form field changes
+   * - Parses numeric values for currency fields
+   * - Resets subcategory when category changes
+   * 
+   * @param {React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>} e - Change event
+   */
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     
@@ -113,6 +146,14 @@ function TransactionFormModal({
     }
   }
 
+  /**
+   * Form submission handler
+   * - Validates required fields
+   * - Submits transaction to Google Sheets API
+   * - Handles success and error states
+   * 
+   * @param {FormEvent} e - Form submission event
+   */
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)

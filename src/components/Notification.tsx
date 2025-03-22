@@ -1,5 +1,9 @@
 import { useState, useEffect } from 'react'
 
+/**
+ * Props for the Notification component
+ * @interface NotificationProps
+ */
 interface NotificationProps {
   message: string
   type: 'success' | 'error'
@@ -8,6 +12,23 @@ interface NotificationProps {
   duration?: number
 }
 
+/**
+ * Animated notification component for displaying success and error messages
+ * 
+ * Features:
+ * - Auto-dismisses after specified duration
+ * - Smooth fade in/out animations
+ * - Different styling for success and error states
+ * - Manual close button
+ * 
+ * @param {NotificationProps} props - Component props
+ * @param {string} props.message - The notification message to display
+ * @param {'success' | 'error'} props.type - Type of notification that determines styling
+ * @param {boolean} props.isVisible - Whether the notification should be visible
+ * @param {() => void} props.onClose - Callback function when notification is closed
+ * @param {number} [props.duration=3000] - Time in milliseconds before auto-dismissing
+ * @returns {JSX.Element|null} The notification component or null when not visible
+ */
 function Notification({ message, type, isVisible, onClose, duration = 3000 }: NotificationProps) {
   const [isShowing, setIsShowing] = useState(false)
 

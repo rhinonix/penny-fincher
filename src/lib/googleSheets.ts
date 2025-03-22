@@ -1,26 +1,58 @@
+/**
+ * Represents a financial transaction record
+ * @interface Transaction
+ */
 interface Transaction {
+  /** Unique identifier for the transaction */
   id?: string;
+  /** Date of the transaction (MM/DD/YYYY format) */
   date: string;
+  /** Description of the transaction */
   description: string;
+  /** Primary category of the transaction */
   category?: string;
+  /** Subcategory of the transaction */
   subcategory?: string;
+  /** Amount in Euros */
   amountEUR?: number;
+  /** Amount in US Dollars */
   amountUSD?: number;
+  /** Account associated with the transaction */
   account: string;
+  /** Additional notes about the transaction */
   notes?: string;
 }
 
+/**
+ * Structure containing category and subcategory data
+ * @interface CategoryData
+ */
 interface CategoryData {
+  /** List of all available categories */
   categories: string[];
+  /** Map of categories to their subcategories */
   subcategories: Record<string, string[]>;
+  /** Flat list of all subcategories */
   allSubcategories: string[];
 }
 
+/**
+ * Service for interacting with Google Sheets API for financial data management
+ * @class GoogleSheetsService
+ */
 export class GoogleSheetsService {
+  /** Google API key from environment variables */
   private apiKey: string;
+  /** ID of the Google Spreadsheet containing financial data */
   private spreadsheetId: string;
+  /** Cache for category data to reduce API calls */
   private categoryData: CategoryData | null = null;
   
+  /**
+   * Initializes the Google Sheets service with API credentials
+   * @constructor
+   * @throws {Error} If environment variables are missing
+   */
   constructor() {
     // Check for environment variables
     this.apiKey = import.meta.env.VITE_GOOGLE_API_KEY;
@@ -31,7 +63,12 @@ export class GoogleSheetsService {
     }
   }
 
-  // Helper method to parse currency values
+  /**
+   * Parses various currency formats into a normalized number value
+   * @private
+   * @param {any} value - The currency value to parse
+   * @returns {number|undefined} Parsed number or undefined if parsing fails
+   */
   private parseCurrencyValue(value: any): number | undefined {
     if (!value) return undefined;
     
@@ -84,6 +121,12 @@ export class GoogleSheetsService {
     }
   }
 
+  /**
+   * Fetches all transactions from the Google Sheets document
+   * @async
+   * @returns {Promise<Transaction[]>} Array of transactions sorted by date (newest first)
+   * @throws {Error} If API call fails
+   */
   async getTransactions(): Promise<Transaction[]> {
     try {
       const response = await fetch(
@@ -169,6 +212,12 @@ export class GoogleSheetsService {
     }
   }
 
+  /**
+   * Counts the total number of transactions in the spreadsheet
+   * @async
+   * @returns {Promise<number>} Count of transactions
+   * @throws {Error} If API call fails
+   */
   async countTransactions(): Promise<number> {
     try {
       const response = await fetch(
@@ -187,6 +236,13 @@ export class GoogleSheetsService {
     }
   }
 
+  /**
+   * Adds a new transaction to the Google Sheets document
+   * @async
+   * @param {Transaction} transaction - The transaction to add
+   * @returns {Promise<void>}
+   * @throws {Error} If API call fails
+   */
   async addTransaction(transaction: Transaction): Promise<void> {
     try {
       const values = [
@@ -225,6 +281,11 @@ export class GoogleSheetsService {
     }
   }
 
+  /**
+   * Fetches category and subcategory data from the Settings sheet
+   * @async
+   * @returns {Promise<CategoryData>} Structured category data
+   */
   async fetchCategoryData(): Promise<CategoryData> {
     // Return cached data if available
     if (this.categoryData) {
@@ -291,11 +352,17 @@ export class GoogleSheetsService {
     }
   }
   
-  // Method to invalidate the category cache when categories are updated
+  /**
+   * Invalidates the category cache when categories are updated
+   * Forces a refresh of category data on next fetchCategoryData call
+   */
   invalidateCategoryCache(): void {
     this.categoryData = null;
   }
 }
 
-// Export singleton instance
+/** 
+ * Singleton instance of GoogleSheetsService
+ * @const googleSheets
+ */
 export const googleSheets = new GoogleSheetsService();

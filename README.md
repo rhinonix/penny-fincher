@@ -1,50 +1,56 @@
-# React + TypeScript + Vite
+# PennyFincher
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+PennyFincher is a personal finance tracking application that helps you manage your budget, track expenses, and gain insights into your spending habits.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Dashboard**: Get a quick overview of your financial health
+- **Transaction Management**: Record, edit, and categorize your expenses and income
+- **Budget Planning**: Set budgets by category and track your progress
+- **Reports**: Visualize your spending patterns with intuitive charts
+- **Categories**: Customize transaction categories to fit your needs
+- **Google Sheets Integration**: Store your data securely in your own Google account
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. Clone the repository
+2. Install dependencies with `npm install`
+3. Configure your Google Sheets API credentials
+4. Run the development server with `npm run dev`
 
-- Configure the top-level `parserOptions` property like this:
+See the [documentation site](https://rhinonix.github.io/penny-fincher/) for detailed setup instructions.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Technology Stack
+
+- React 18
+- TypeScript
+- Vite
+- Google Sheets API
+- Tailwind CSS
+- React Query
+- React Router
+
+## Documentation
+
+The project documentation is built with VitePress and is available at:
+https://rhinonix.github.io/penny-fincher/
+
+## Local Development
+
+```bash
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## License
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+MIT

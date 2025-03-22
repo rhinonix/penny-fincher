@@ -1,0 +1,32 @@
+/* Custom styles for PennyFincher docs */
+
+:root {
+  --vp-c-brand: #4CAF50;
+  --vp-c-brand-light: #66BB6A;
+  --vp-c-brand-lighter: #81C784;
+  --vp-c-brand-dark: #43A047;
+  --vp-c-brand-darker: #388E3C;
+}
+
+/* Enhance API method signatures */
+.api-method {
+  border-left: 2px solid var(--vp-c-brand);
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+}
+
+/* Interface styling */
+.interface-name {
+  color: var(--vp-c-brand-dark);
+  font-weight: bold;
+}
+
+/* Component prop tables */
+.prop-table th {
+  background-color: rgba(76, 175, 80, 0.1);
+}
+
+/* Code block enhancements */
+div[class*='language-'] {
+  border-radius: 8px;
+}

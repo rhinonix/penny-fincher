@@ -9,6 +9,10 @@ import 'react-loading-skeleton/dist/skeleton.css'
 // Register ChartJS components
 ChartJS.register(ArcElement, Tooltip, Legend, CategoryScale, LinearScale, PointElement, LineElement, Title)
 
+/**
+ * Transaction interface for reports
+ * @interface Transaction
+ */
 interface Transaction {
   id?: string
   date: string
@@ -21,6 +25,17 @@ interface Transaction {
   notes?: string
 }
 
+/**
+ * Spending reports page component
+ * 
+ * Features:
+ * - Displays spending summary for selected time period (3, 6, or 12 months)
+ * - Shows spending breakdown by category in a pie chart
+ * - Displays monthly spending trends in a line chart
+ * - Lists top spending categories with percentages
+ * 
+ * @returns {JSX.Element} The reports page
+ */
 function Reports() {
   const [transactions, setTransactions] = useState<Transaction[]>([])
   const [loading, setLoading] = useState(true)
@@ -50,6 +65,10 @@ function Reports() {
   })
   
   useEffect(() => {
+    /**
+     * Loads transaction data from Google Sheets
+     * @async
+     */
     async function loadData() {
       try {
         const data = await googleSheets.getTransactions()
@@ -80,6 +99,12 @@ function Reports() {
   }, [transactions, periodFilter])
   
   // Filter transactions by selected time period
+  /**
+   * Filters transactions to a specific time period
+   * @param {Transaction[]} transactions - The transactions to filter
+   * @param {string} period - Time period to filter by (3months, 6months, 12months)
+   * @returns {Transaction[]} Filtered transactions
+   */
   const filterTransactionsByPeriod = (transactions: Transaction[], period: string) => {
     const now = new Date()
     let startDate: Date
@@ -109,6 +134,14 @@ function Reports() {
   }
   
   // Prepare data for category pie chart
+  /**
+   * Prepares data for the category pie chart
+   * - Calculates spending by category
+   * - Groups small categories as "Other"
+   * - Assigns colors to each category
+   * 
+   * @param {Transaction[]} transactions - The transactions to analyze
+   */
   const prepareCategoryData = (transactions: Transaction[]) => {
     const categoryTotals = {}
     const colors = [
@@ -174,6 +207,13 @@ function Reports() {
   }
   
   // Prepare data for monthly trend line chart
+  /**
+   * Prepares data for the monthly spending trend chart
+   * - Calculates spending by month for the selected period
+   * - Formats dates for display
+   * 
+   * @param {Transaction[]} transactions - The transactions to analyze
+   */
   const prepareTrendData = (transactions: Transaction[]) => {
     const monthlyTotals = {}
     const now = new Date()
@@ -238,6 +278,11 @@ function Reports() {
   }
   
   // Format currency
+  /**
+   * Formats a number as a currency string in EUR
+   * @param {number} amount - The amount to format
+   * @returns {string} Formatted currency string
+   */
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat('en-US', {
       style: 'currency',
@@ -246,6 +291,10 @@ function Reports() {
     }).format(amount)
   }
   
+  /**
+   * Gets a readable label for the selected time period
+   * @returns {string} Human-readable period label
+   */
   const getPeriodLabel = () => {
     switch (periodFilter) {
       case '3months': return 'Last 3 Months'
@@ -256,6 +305,10 @@ function Reports() {
   }
   
   // Calculate total spent in the period
+  /**
+   * Calculates the total amount spent in the selected period
+   * @returns {number} Total amount spent
+   */
   const calculateTotalSpent = () => {
     const filteredTransactions = filterTransactionsByPeriod(transactions, periodFilter)
     return filteredTransactions.reduce((total, transaction) => {

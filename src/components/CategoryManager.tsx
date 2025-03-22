@@ -2,12 +2,30 @@ import { useState, useEffect } from 'react'
 import { googleSheets } from '../lib/googleSheets'
 import Skeleton from 'react-loading-skeleton'
 
+/**
+ * Data structure for categories and subcategories
+ * @interface CategoryData
+ */
 interface CategoryData {
   categories: string[]
   subcategories: Record<string, string[]>
   allSubcategories: string[]
 }
 
+/**
+ * Component for managing transaction categories and subcategories
+ * 
+ * Features:
+ * - Displays list of categories and their subcategories
+ * - Provides UI for adding new categories and subcategories
+ * - Shows notifications for actions
+ * - Allows refreshing category data from Google Sheets
+ * 
+ * Note: Actual category updates are performed in Google Sheets directly,
+ * this component provides UI for viewing and notifications about this process.
+ * 
+ * @returns {JSX.Element} The category manager component
+ */
 function CategoryManager() {
   const [categoryData, setCategoryData] = useState<CategoryData>({
     categories: [],
@@ -25,6 +43,11 @@ function CategoryManager() {
     loadCategoryData()
   }, [])
 
+  /**
+   * Loads category and subcategory data from Google Sheets
+   * Invalidates cache to ensure fresh data
+   * @async
+   */
   const loadCategoryData = async () => {
     setLoading(true)
     try {
@@ -45,6 +68,11 @@ function CategoryManager() {
     }
   }
 
+  /**
+   * Displays a notification message for a specified duration
+   * @param {string} message - The notification message to display
+   * @param {'success' | 'error'} type - Type of notification (affects styling)
+   */
   const showNotification = (message: string, type: 'success' | 'error') => {
     setNotification({ message, type, visible: true })
     setTimeout(() => {
@@ -54,6 +82,11 @@ function CategoryManager() {
 
   // This function is a mockup since we don't have a direct way to edit the Google Sheet from this app
   // In a real implementation, this would call an API to update the Settings sheet
+  /**
+   * Handles adding a new category (currently displays informational message)
+   * In a real implementation, this would call an API to update the Settings sheet
+   * @async
+   */
   const handleAddCategory = async () => {
     if (!newCategory.trim()) return
     
@@ -78,6 +111,11 @@ function CategoryManager() {
   }
 
   // This function is a mockup since we don't have a direct way to edit the Google Sheet from this app
+  /**
+   * Handles adding a new subcategory (currently displays informational message)
+   * In a real implementation, this would call an API to update the Settings sheet
+   * @async
+   */
   const handleAddSubcategory = async () => {
     if (!newSubcategory.trim() || !activeCategory) return
     

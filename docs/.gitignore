@@ -1,0 +1,21 @@
+# Generated files
+api/*.html
+api/*.json
+
+# VitePress build output
+.vitepress/dist/
+.vitepress/cache/
+
+# Node modules
+node_modules/
+
+# IDE files
+.idea/
+.vscode/
+*.iml
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
