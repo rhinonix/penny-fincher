@@ -113,3 +113,15 @@ a:not(.vp-link):hover {
   transform: translateY(-4px) !important;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08) !important;
 }
+
+/* Hero image customization */
+.VPHero .image-bg {
+  background-color: transparent !important;
+}
+
+.VPHero .image-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}

@@ -6,8 +6,8 @@ hero:
   text: Personal Finance Tracker
   tagline: A free and open-source solution for tracking your finances with Google Sheets integration
   image:
-    src: /logo.svg
-    alt: PennyFincher Logo
+    src: /mockup.png
+    alt: PennyFincher Application Screenshot
   actions:
     - theme: brand
       text: Get Started
