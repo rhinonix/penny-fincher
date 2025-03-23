@@ -1,7 +1,7 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
-  title: 'PennyFincher Documentation',
+  title: 'PennyFincher Docs',
   description: 'Documentation for the PennyFincher personal finance tracker',
   base: '/penny-fincher/', // GitHub Pages repository name
   ignoreDeadLinks: true, // Ignore dead links during build
@@ -47,7 +47,7 @@ export default defineConfig({
       ]
     },
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/yourusername/penny-fincher' }
+      { icon: 'github', link: 'https://github.com/rhinonix/penny-fincher' }
     ],
     footer: {
       message: 'Released under the MIT License.',

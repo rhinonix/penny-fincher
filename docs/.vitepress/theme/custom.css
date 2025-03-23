@@ -1,11 +1,39 @@
 /* Custom styles for PennyFincher docs */
 
 :root {
+  /* Main brand colors - Green */
   --vp-c-brand: #4CAF50;
   --vp-c-brand-light: #66BB6A;
   --vp-c-brand-lighter: #81C784;
   --vp-c-brand-dark: #43A047;
   --vp-c-brand-darker: #388E3C;
+  
+  /* Override default theme colors */
+  --vp-c-green: #4CAF50;
+  --vp-c-green-light: #66BB6A;
+  --vp-c-green-lighter: #81C784;
+  --vp-c-green-dark: #43A047;
+  --vp-c-green-darker: #388E3C;
+  
+  /* Button colors */
+  --vp-button-brand-bg: var(--vp-c-brand);
+  --vp-button-brand-hover-bg: var(--vp-c-brand-light);
+  --vp-button-brand-active-bg: var(--vp-c-brand-dark);
+  
+  /* Link colors */
+  --vp-c-text-1: rgba(60, 60, 60, 1);
+  --vp-c-text-2: rgba(60, 60, 60, 0.85);
+  --vp-c-text-3: rgba(60, 60, 60, 0.65);
+  
+  /* Navbar special treatment */
+  --vp-nav-bg-color: rgba(255, 255, 255, 0.95);
+  
+  /* Home hero image background */
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(120deg, #4CAF50 30%, #81C784);
+  
+  /* Code blocks */
+  --vp-code-block-bg: rgba(240, 246, 252, 0.7);
 }
 
 /* Enhance API method signatures */
@@ -29,4 +57,59 @@
 /* Code block enhancements */
 div[class*='language-'] {
   border-radius: 8px;
+}
+
+/* Ensure all links use our green color */
+a:not(.vp-link) {
+  color: var(--vp-c-brand);
+}
+
+a:not(.vp-link):hover {
+  color: var(--vp-c-brand-light);
+}
+
+.vp-doc a:not(.header-anchor) {
+  color: var(--vp-c-brand);
+}
+
+.vp-doc a:not(.header-anchor):hover {
+  color: var(--vp-c-brand-light);
+}
+
+/* Active sidebar links */
+.VPSidebarItem.is-active .link {
+  color: var(--vp-c-brand) !important;
+}
+
+/* Table headers */
+.vp-doc th {
+  background-color: rgba(76, 175, 80, 0.1);
+}
+
+/* Custom badges/tags */
+.custom-block.tip {
+  border-color: var(--vp-c-brand);
+}
+
+/* Override header anchor hover color */
+.header-anchor:hover {
+  color: var(--vp-c-brand) !important;
+}
+
+/* Make feature icons bigger */
+.VPFeature .icon {
+  width: 40px !important;
+  height: 40px !important;
+}
+
+/* Add soft shadow to feature boxes */
+.VPFeature {
+  border-radius: 12px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.VPFeature:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08) !important;
 }

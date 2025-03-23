@@ -1,6 +1,6 @@
 ---
 layout: home
-title: PennyFincher Documentation
+title: PennyFincher Docs
 hero:
   name: PennyFincher
   text: Personal Finance Tracker
@@ -17,29 +17,35 @@ hero:
       link: https://github.com/rhinonix/penny-fincher
 
 features:
-  - icon: 📊
+  - icon: 
+      src: /icons/dashboard.svg
     title: Dashboard
     details: Interactive dashboard with financial overview and data visualizations
-  - icon: 💰
+  - icon: 
+      src: /icons/transaction.svg
     title: Transaction Management
     details: Easy tracking and categorizing of your expenses and income
-  - icon: 📅
+  - icon: 
+      src: /icons/budget.svg
     title: Budget Tracking
     details: Set and monitor spending goals for different categories
-  - icon: 📈
+  - icon: 
+      src: /icons/reports.svg
     title: Reports
     details: Analyze your spending patterns across categories and time periods
-  - icon: 🔄
+  - icon: 
+      src: /icons/sheets.svg
     title: Google Sheets Integration
     details: Secure data storage in your own Google Sheets document
-  - icon: 🎨
+  - icon: 
+      src: /icons/categories.svg
     title: Custom Categories
     details: Organize transactions with your own hierarchy of categories and subcategories
 ---
 
 <div class="spacer"></div>
 
-# PennyFincher Documentation
+# PennyFincher Docs
 
 Welcome to the PennyFincher documentation. PennyFincher is a personal finance tracking application that helps you manage your expenses and budget.
 
