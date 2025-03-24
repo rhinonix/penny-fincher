@@ -22,11 +22,19 @@ A recurring transaction is a template that defines a transaction that occurs at 
 - **Day of Month/Week**: Specific day when the transaction occurs
 - **Active Status**: Whether the recurring transaction is currently active
 
+## Accessing Recurring Transactions
+
+1. Navigate to the Transactions page in PennyFincher
+2. Click on the "Recurring Transactions" tab at the top of the page
+3. The interface will switch to show your recurring transactions
+
+The tabbed interface provides a clean separation between your regular transactions and recurring transaction templates.
+
 ## Adding a Recurring Transaction
 
 1. Navigate to the Transactions page in PennyFincher
-2. Scroll down to the "Recurring Transactions" section
-3. Click the "Add Recurring Transaction" button
+2. Click on the "Recurring Transactions" tab
+3. Click the "Add Recurring Transaction" button in the top right corner
 4. Fill in the details of your recurring transaction:
    - Description (e.g., "Netflix Subscription", "Rent Payment")
    - Account
@@ -44,7 +52,7 @@ A recurring transaction is a template that defines a transaction that occurs at 
 
 ## Managing Recurring Transactions
 
-The Recurring Transactions section displays all your recurring transaction templates, including:
+The Recurring Transactions tab displays all your recurring transaction templates, including:
 
 - Description
 - Frequency
@@ -58,12 +66,14 @@ The Recurring Transactions section displays all your recurring transaction templ
 
 When a recurring transaction is due (based on its frequency and start date), you can generate an actual transaction from it:
 
-1. Click the "Process Due Transactions" button
-2. PennyFincher will:
+1. Click on the "Recurring Transactions" tab
+2. Click the "Process Due Transactions" button in the top right corner
+3. PennyFincher will:
    - Check which recurring transactions are due
    - Create actual transactions for them in the Transactions sheet
    - Update the "Last Processed" date for each processed recurring transaction
    - Calculate the next due date
+4. You can then switch back to the "Transactions" tab to see the newly created transactions
 
 ### Enabling/Disabling Recurring Transactions
 

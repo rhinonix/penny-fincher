@@ -9,15 +9,46 @@ import RecurringTransactions from '../components/RecurringTransactions';
 
 function TransactionsPage() {
   const [accounts, setAccounts] = useState<string[]>([]);
+  const [activeTab, setActiveTab] = useState<'transactions' | 'recurring'>('transactions');
   
-  // Component usage
+  // Component usage in tabbed interface
   return (
     <div>
-      {/* Other components */}
-      <RecurringTransactions 
-        accounts={accounts} 
-        onProcessDue={() => loadTransactions()}
-      />
+      {/* Tab navigation */}
+      <div className="mb-6">
+        <div className="border-b border-gray-200">
+          <nav className="-mb-px flex">
+            <button
+              onClick={() => setActiveTab('transactions')}
+              className={`py-4 px-6 text-center border-b-2 font-medium text-sm ${
+                activeTab === 'transactions'
+                  ? 'border-green-500 text-green-600'
+                  : 'border-transparent text-gray-500'
+              }`}
+            >
+              Transactions
+            </button>
+            <button
+              onClick={() => setActiveTab('recurring')}
+              className={`py-4 px-6 text-center border-b-2 font-medium text-sm ${
+                activeTab === 'recurring'
+                  ? 'border-green-500 text-green-600'
+                  : 'border-transparent text-gray-500'
+              }`}
+            >
+              Recurring Transactions
+            </button>
+          </nav>
+        </div>
+      </div>
+      
+      {/* Conditionally render component based on active tab */}
+      {activeTab === 'recurring' && (
+        <RecurringTransactions 
+          accounts={accounts} 
+          onProcessDue={() => loadTransactions()}
+        />
+      )}
     </div>
   );
 }
