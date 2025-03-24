@@ -29,6 +29,8 @@ export default defineConfig({
             { text: 'Overview', link: '/components/' },
             { text: 'Layout', link: '/components/Layout' },
             { text: 'TransactionFormModal', link: '/components/TransactionFormModal' },
+            { text: 'RecurringTransactions', link: '/components/RecurringTransactions' },
+            { text: 'RecurringTransactionFormModal', link: '/components/RecurringTransactionFormModal' },
             { text: 'Notification', link: '/components/Notification' },
             { text: 'CategoryManager', link: '/components/CategoryManager' },
             { text: 'SkeletonLoader', link: '/components/SkeletonLoader' }
@@ -41,7 +43,8 @@ export default defineConfig({
           items: [
             { text: 'Introduction', link: '/guide/' },
             { text: 'Getting Started', link: '/guide/getting-started' },
-            { text: 'Configuration', link: '/guide/configuration' }
+            { text: 'Configuration', link: '/guide/configuration' },
+            { text: 'Recurring Transactions', link: '/guide/recurring-transactions' }
           ]
         }
       ]

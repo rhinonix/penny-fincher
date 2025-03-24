@@ -39,6 +39,7 @@ VITE_SPREADSHEET_ID=your_spreadsheet_id_here
 2. Create the following sheets:
    - `Transactions`: For storing transaction data
    - `Settings`: For storing categories and subcategories
+   - `Recurring`: For storing recurring transaction templates (can be created automatically)
 
 3. Set up the `Transactions` sheet with the following columns:
    - Date
@@ -54,6 +55,14 @@ VITE_SPREADSHEET_ID=your_spreadsheet_id_here
 4. Set up the `Settings` sheet with the following columns:
    - Category
    - Subcategory
+
+5. For the `Recurring` sheet, you can either set it up manually with the necessary columns or use our automated setup:
+
+```bash
+npm run setup-recurring
+```
+
+This command will create and configure the Recurring sheet with the correct columns and formatting.
 
 ## Getting Your Google API Key
 
@@ -83,4 +92,5 @@ You should now be able to access PennyFincher at `http://localhost:5173/`.
 
 ## Next Steps
 
-Continue to the [Configuration](/guide/configuration) guide to learn how to customize PennyFincher for your needs.
+- Continue to the [Configuration](/guide/configuration) guide to learn how to customize PennyFincher.
+- Check out the [Recurring Transactions](/guide/recurring-transactions) guide to set up automated handling of regular expenses.

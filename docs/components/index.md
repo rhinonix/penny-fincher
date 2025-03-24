@@ -6,6 +6,8 @@ PennyFincher is built with a modular component structure. This section provides 
 
 - [Layout](./Layout.md) - The main layout component that provides the application structure
 - [TransactionFormModal](./TransactionFormModal.md) - Modal for adding new transactions
+- [RecurringTransactions](./RecurringTransactions.md) - Component for managing recurring transactions
+- [RecurringTransactionFormModal](./RecurringTransactionFormModal.md) - Modal for adding recurring transactions
 - [Notification](./Notification.md) - Toast notification system for success/error messages
 - [CategoryManager](./CategoryManager.md) - Component for managing transaction categories
 - [SkeletonLoader](./SkeletonLoader.md) - Loading state components for different UI elements

@@ -3,6 +3,7 @@ import { googleSheets } from '../lib/googleSheets'
 import { format } from 'date-fns'
 import { FiltersSkeleton, TableSkeleton } from '../components/SkeletonLoader'
 import TransactionFormModal from '../components/TransactionFormModal'
+import RecurringTransactions from '../components/RecurringTransactions'
 import Notification from '../components/Notification'
 import 'react-loading-skeleton/dist/skeleton.css'
 
@@ -297,12 +298,17 @@ function Transactions() {
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
               {filteredTransactions.map((transaction) => (
-                <tr key={transaction.id}>
+                <tr key={transaction.id} className={transaction.recurringId ? 'bg-green-50' : ''}>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                     {formatDate(transaction.date)}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                     {transaction.description}
+                    {transaction.recurringId && (
+                      <span className="ml-2 px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                        Recurring
+                      </span>
+                    )}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                     {transaction.category || '-'}
@@ -341,6 +347,12 @@ function Transactions() {
           </p>
         </div>
       </div>
+      
+      {/* Recurring Transactions Section */}
+      <RecurringTransactions 
+        accounts={accounts} 
+        onProcessDue={loadData} 
+      />
     </div>
   )
 }

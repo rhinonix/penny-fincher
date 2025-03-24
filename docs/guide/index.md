@@ -14,6 +14,7 @@ PennyFincher is a powerful yet simple personal finance tracking application buil
 
 - **Dashboard**: Get a quick overview of your financial situation with key metrics and charts.
 - **Transactions**: Track and categorize all your financial transactions.
+- **Recurring Transactions**: Manage subscriptions, bills, and other recurring expenses automatically.
 - **Budget**: Set and monitor spending limits for different categories.
 - **Reports**: Analyze your spending patterns across categories and time periods.
 - **Settings**: Customize the application to suit your preferences.
