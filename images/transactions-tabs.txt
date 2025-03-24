@@ -1,0 +1,13 @@
+This is a placeholder for the transactions tabs screenshot.
+
+The actual image should show:
+1. The Transactions page with the tabbed navigation
+2. Both the "Transactions" and "Recurring Transactions" tabs
+3. Highlight the tab switching functionality
+4. Show the appropriate buttons for each tab view
+
+To create the actual image:
+1. Open PennyFincher in your browser
+2. Navigate to the Transactions page
+3. Take a screenshot showing both tabs
+4. Save as transactions-tabs.png in this directory
