@@ -1,0 +1,23 @@
+This is a placeholder for the recurring transaction form screenshot.
+
+The actual image should show:
+1. The "Add Recurring Transaction" modal form
+2. All the form fields including:
+   - Description field
+   - Account dropdown
+   - Frequency selection
+   - Start Date picker
+   - Day of Month/Week selection
+   - End Date picker
+   - Amount fields
+   - Category and Subcategory selection
+   - Notes field
+3. The "Next occurrences" preview section
+4. Add and Cancel buttons
+
+To create the actual image:
+1. Open PennyFincher in your browser
+2. Navigate to the Transactions page
+3. Click "Add Recurring Transaction" 
+4. Take a screenshot of the form
+5. Save as recurring-transaction-form.png in this directory
